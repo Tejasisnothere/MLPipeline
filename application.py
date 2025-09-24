@@ -47,14 +47,26 @@ def predict(inv_id):
 
 
 @app.get('/graph/{inv_id}/{category}')
-async def graph(inv_id, request: Request):
+async def graph(inv_id, category: str, request: Request):
     dip = DataIngestionPipeline()
     output = dip.get_data(inv_id=inv_id)
+
+    if output.empty:
+        return templates.TemplateResponse("graph.html", {
+            "request": request,
+            "data": {"x": [], "y": []}
+        })
+
     gp = GraphPipeline()
     graph_data = gp.direct_dataframe_to_graph(output)
-    
-    return templates.TemplateResponse("graph.html", {"request": request, "data": graph_data})
-    
+
+    print("Graph data:", graph_data)  # ✅ debugging
+
+    return templates.TemplateResponse("graph.html", {
+        "request": request,
+        "data": graph_data
+    })
+
 @app.post("/graph-data/{inv_id}")
 async def get_graph_data(inv_id, req: GraphRequest):
     dates = [datetime.now() - timedelta(days=i) for i in range(30)][::-1]
