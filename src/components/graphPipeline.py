@@ -23,7 +23,7 @@ class GraphPipeline:
     
     def direct_dataframe_to_graph(self, df):
         df['date'] = pd.to_datetime(df['date'])
-        df = self.df.sort_values(by='date', ignore_index=True)
+        df = df.sort_values(by='date', ignore_index=True)
         return {
             "x": df['date'].dt.strftime("%Y-%m-%d").tolist(),
             "y": df['profit'].tolist()
