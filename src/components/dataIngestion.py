@@ -12,9 +12,9 @@ from dotenv import load_dotenv
 
 logging.info("App started")
 
-BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-DATA_DIR = os.path.join(BASE_DIR, "data", "raw")
-os.makedirs(DATA_DIR, exist_ok=True)
+# BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+# DATA_DIR = os.path.join(BASE_DIR, "data", "raw")
+# os.makedirs(DATA_DIR, exist_ok=True)
 
 
 

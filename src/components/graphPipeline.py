@@ -3,12 +3,13 @@ import numpy as np
 import os
 
 
-BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-DATA_DIR = os.path.join(BASE_DIR, "data", "raw")
+# BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+# DATA_DIR = os.path.join(BASE_DIR, "data", "raw")
 
 class GraphPipeline:
     def __init__(self):
-        self.df = pd.read_csv(os.path.join(DATA_DIR, "rawData.csv"))
+        # self.df = pd.read_csv(os.path.join(DATA_DIR, "rawData.csv"))
+        pass
 
 
     def dataframe_to_graph(self):
