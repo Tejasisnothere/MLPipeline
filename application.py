@@ -51,7 +51,7 @@ async def graph(inv_id, request: Request):
     dip = DataIngestionPipeline()
     output = dip.get_data(inv_id=inv_id)
     gp = GraphPipeline()
-    graph_data = gp.direct_dataframe_to_graph()
+    graph_data = gp.direct_dataframe_to_graph(output)
     
     return templates.TemplateResponse("graph.html", {"request": request, "data": graph_data})
     
