@@ -75,11 +75,11 @@ class DataIngestionPipeline:
 
             df = pd.concat([df,newdf],ignore_index=True)
 
-            df.to_csv(os.path.join(DATA_DIR, "rawData.csv"), index=False)
-        print(df.head())
+            # df.to_csv(os.path.join(DATA_DIR, "rawData.csv"), index=False)
+        # print(df.head())
 
-        temp = df.iloc()[:5]
-        return temp
+        
+        return df
 
 
 class UserRequest(BaseModel):
